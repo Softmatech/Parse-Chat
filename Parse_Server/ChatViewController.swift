@@ -36,8 +36,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         let message = messagesArray[indexPath.row]["text"] as? String
-//        let user = messagesArray[indexPath.row]["user"] as? String
-//        print(user!," ------------------->>> ",message!)
         cell.TextLabel.text = message
         
         if let user = messagesArray[indexPath.row]["user"] as? PFUser {
@@ -54,9 +52,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @objc func onTimer() {
-    Timer.scheduledTimer(timeInterval: 5 , target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
-        
-//        refreshData()
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshData), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,7 +78,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func refreshData() {
+    @objc func refreshData() {
         // Retrieve the latest messages and reload the table
         let query = PFQuery(className: "Message")
         query.order(byDescending: "createdAt")

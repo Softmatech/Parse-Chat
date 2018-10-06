@@ -220,7 +220,7 @@
         <!--Chat View Controller-->
         <scene sceneID="kOk-Em-7rF">
             <objects>
-                <viewController id="394-ZO-COB" customClass="ChatViewController" customModule="Parse_Server" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="394-ZO-COB" customClass="ChatViewController" customModule="Parse_Server" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sMF-HM-gVV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
