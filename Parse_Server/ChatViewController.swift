@@ -18,6 +18,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var generalError = ""
     var messagesArray = [PFObject]()
     var refreshControl: UIRefreshControl!
+    let imageSize = 100
+    let baseURL = "https://api.adorable.io/avatars/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +65,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let user = messagesArray[indexPath.row]["user"] as? PFUser {
             // User found! update username label with username
             cell.usernameLabel.text = user.username
+            let identifier = user.username
+            let avatarURL = URL(string: baseURL+"\(imageSize)/\(identifier).png")
+            print("---------------------->>> ",avatarURL!)
         } else {
             // No user found, set default username
             cell.usernameLabel.text = "🤖"
         }
-
-//        cell.usernameLabel.text = user
         return cell
     }
     

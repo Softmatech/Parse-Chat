@@ -12,10 +12,13 @@ class ChatCell: UITableViewCell {
 
     @IBOutlet var TextLabel: UILabel!
     @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet weak var avatarImage: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

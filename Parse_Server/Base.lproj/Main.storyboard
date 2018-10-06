@@ -286,6 +286,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="TextLabel" destination="j3R-Bz-7vs" id="sCn-Tt-1fn"/>
+                                            <outlet property="avatarImage" destination="sK4-8G-wkN" id="li4-S6-z6h"/>
                                             <outlet property="usernameLabel" destination="96W-D9-VqZ" id="8am-lh-dqe"/>
                                         </connections>
                                     </tableViewCell>
