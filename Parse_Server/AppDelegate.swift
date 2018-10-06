@@ -19,7 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
             configuration.applicationId = "CodePath-Parse"
             configuration.server = "http://45.79.67.127:1337/parse"
-        }))
+        }
+        ))
+        
+                if let currentUser = PFUser.current() {
+                    print("Welcome back \(currentUser.username!) 😀")
+                        // TODO: Load Chat view controller and set as root view controller
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController")
+                    window?.rootViewController = chatViewController
+                }
+        
         return true
     }
     
