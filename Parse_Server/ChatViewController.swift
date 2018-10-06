@@ -8,6 +8,9 @@
 
 import UIKit
 import Parse
+import AlamofireImage
+
+
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var textMessage: UITextField!
@@ -18,8 +21,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var generalError = ""
     var messagesArray = [PFObject]()
     var refreshControl: UIRefreshControl!
-    let imageSize = 100
-    let baseURL = "https://api.adorable.io/avatars/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +67,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             // User found! update username label with username
             cell.usernameLabel.text = user.username
             let identifier = user.username
-//            let avatarURL = URL(string: baseURL+"\(imageSize)/\(identifier).png")
-//            print("---------------------->>> ",avatarURL!)
+            let imageSize = 100
+            let baseURL = "https://api.adorable.io/avatars/"
+            let avatarURL = URL(string: baseURL+"\(imageSize)/\(identifier!).png")
+            cell.avatarImage.af_setImage(withURL: avatarURL!)
+            print("---------------------->>> ",avatarURL)
         } else {
             // No user found, set default username
             cell.usernameLabel.text = "🤖"
