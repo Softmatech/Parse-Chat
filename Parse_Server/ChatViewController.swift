@@ -12,12 +12,20 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var textMessage: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     var userName = ""
     var generalError = ""
     var messagesArray = [PFObject]()
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicatorSet()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ChatViewController.didPullTorefresh(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         tableView.delegate = self
@@ -27,6 +35,20 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.refreshData()
     }
     
+    @objc func didPullTorefresh(_ refreshControl: UIRefreshControl){
+        refreshData()
+    }
+    
+    func indicatorSet(){
+        if indicator.isAnimating == true {
+            indicator.stopAnimating()
+            indicator.isHidden = true
+        }
+        else{
+            indicator.isHidden = true
+            indicator.startAnimating()
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messagesArray.count
@@ -87,11 +109,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         query.findObjectsInBackground {
             (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
+                self.indicator.startAnimating()
                 print("objects found",objects?.count ?? 0)
                 
                 if let objects = objects {
                     self.messagesArray = objects
+                    self.indicator.stopAnimating()
                     self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
                 }
             }
         }

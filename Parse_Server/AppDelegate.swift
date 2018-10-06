@@ -32,16 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+
     
-//    func checkUser(){
-//        if let currentUser = PFUser.current() {
-//            print("Welcome back \(currentUser.username!) 😀")
-//                // TODO: Load Chat view controller and set as root view controller
-//                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController")
-//            window?.rootViewController = chatViewController
-//        }
-//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

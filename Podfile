@@ -7,4 +7,5 @@ target 'Parse_Server' do
 
   # Pods for Parse_Server
   pod 'Parse'
+  pod 'AlamofireImage', '~> 3.3' 
 end
