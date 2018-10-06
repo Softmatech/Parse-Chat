@@ -215,7 +215,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1886" y="479"/>
+            <point key="canvasLocation" x="1057" y="1036"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="kOk-Em-7rF">

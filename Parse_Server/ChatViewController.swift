@@ -66,8 +66,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             // User found! update username label with username
             cell.usernameLabel.text = user.username
             let identifier = user.username
-            let avatarURL = URL(string: baseURL+"\(imageSize)/\(identifier).png")
-            print("---------------------->>> ",avatarURL!)
+//            let avatarURL = URL(string: baseURL+"\(imageSize)/\(identifier).png")
+//            print("---------------------->>> ",avatarURL!)
         } else {
             // No user found, set default username
             cell.usernameLabel.text = "🤖"
@@ -126,8 +126,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func generalAlert(){
-        let alertController = UIAlertController(title: "Error", message: self.generalError , preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: { (action) in self.onTimer()}))
+        let alertController = UIAlertController(title: "Alert", message: self.generalError , preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in self.onTimer()}))
         self.present(alertController, animated: true)
     }
     

@@ -75,8 +75,8 @@ class LoginViewController: UIViewController {
     }
     
     func generalAlert(){
-        let alertController = UIAlertController(title: "Error", message: self.generalError , preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: { (action) in self.loginButton.isTouchInside}))
+        let alertController = UIAlertController(title: "Alert", message: self.generalError , preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in self.loginButton.isTouchInside}))
         self.present(alertController, animated: true)
     }
 

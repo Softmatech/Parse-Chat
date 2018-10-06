@@ -45,12 +45,21 @@ class SignUpViewController: UIViewController {
                 self.generalError = error.localizedDescription
                 self.generalAlert()
             } else {
-                print("User Registered successfully")
+                let sms = "User Registered successfully Go back to the Login Page to log in";
+                print(sms)
+                self.generalError = sms
                 // manually segue to logged in view
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-
+                self.generalAlert()
+                self.clearField()
             }
         }
+    }
+    
+    
+    func clearField(){
+        userNameLabel.text = ""
+        emailLabel.text = ""
+        passWordLabel.text = ""
     }
     
     
@@ -78,8 +87,8 @@ class SignUpViewController: UIViewController {
     }
     
     func generalAlert(){
-        let alertController = UIAlertController(title: "Error", message: self.generalError , preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: { (action) in self.signupButton.isTouchInside}))
+        let alertController = UIAlertController(title: "Alert", message: self.generalError , preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in self.signupButton.isTouchInside}))
         self.present(alertController, animated: true)
     }
     

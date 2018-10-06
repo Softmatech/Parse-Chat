@@ -22,13 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         ))
         
-                if let currentUser = PFUser.current() {
-                    print("Welcome back \(currentUser.username!) 😀")
-                        // TODO: Load Chat view controller and set as root view controller
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController")
-                    window?.rootViewController = chatViewController
-                }
+//                if let currentUser = PFUser.current() {
+//                    print("Welcome back \(currentUser.username!) 😀")
+//                        // TODO: Load Chat view controller and set as root view controller
+//                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController")
+//                    window?.rootViewController = chatViewController
+//                }
         
         return true
     }
