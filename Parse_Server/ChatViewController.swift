@@ -23,8 +23,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
         indicatorSet()
-        
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(ChatViewController.didPullTorefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
